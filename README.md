@@ -1,1 +1,1 @@
-# Reservify
+# HikeVenture application aims to help hikers, offering a seamless platform to discover, plan, and navigate unforgettable hiking adventures. With an intuitive interface, comprehensive trail database, and interactive maps, HikeVenture empowers users to explore the great outdoors with confidence. From discovering new trails to planning customized routes and tracking progress in real-time, HikeVenture ensures every hike is a memorable experience. 
