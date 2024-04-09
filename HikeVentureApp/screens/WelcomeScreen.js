@@ -1,19 +1,20 @@
 import React from 'react';
-import 'react-native-gesture-handler';
 import { Image, View, Button, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-function WelcomeScreen() {
-    const handlePress = () => console.log("text pressed");
+function WelcomeScreen({navigation}) {
+   // const handleMapPress = () => navigation.navigate('Map');
+
     //const navigation = useNavigation();
 
-    // const handleSignUpPress = () => {
-    //     navigation.navigate("SignUpScreen");
-    // };
+     const handleSignUpPress = () => {
+         navigation.navigate('SignUp');
+     };
 
-    // const handleContinuePress = () => {
-    //     navigation.navigate("SignUpScreen");
-    // };
+     const handleContinuePress = () => {
+         navigation.navigate('Map');
+     };
 
     return (
         <View style={styles.backround}>
@@ -22,10 +23,10 @@ function WelcomeScreen() {
                 <Text style={styles.text}>HikeVenture</Text>
             </View>
             <View style={styles.buttonsContainer}>
-                <TouchableOpacity onPress={handlePress} style={[styles.button, styles.buttonSignUp]} >
+                <TouchableOpacity onPress={handleSignUpPress} style={[styles.button, styles.buttonSignUp]} >
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={handlePress} style={styles.button} >
+                <TouchableOpacity onPress={handleContinuePress} style={styles.button} >
                     <Text style={styles.buttonText}>Continue as Visitor</Text>
                 </TouchableOpacity>
             </View>
