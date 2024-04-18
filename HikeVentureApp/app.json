@@ -15,16 +15,32 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alerat.HikingApp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alerat.HikingApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsVersion": "11.1.0",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiYWxlcmF0IiwiYSI6ImNsdjE4dmprZTAzeDMybXAwcnl4MXV2YmsifQ.S1r5DYhR1MkXh6Rbv0qIvg"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2d0b2143-4a37-4ccd-8f9b-177083d88f7e"
+      }
     }
   }
 }
