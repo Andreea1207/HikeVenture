@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View, Image, SafeAreaView, Platform, StatusBar } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
+import MapView, { Marker } from 'react-native-maps';
+
 // import MapboxGL from '@react-native-mapbox-gl/maps';
 // MapboxGL.setAccessToken('<pk.eyJ1IjoiYWxlcmF0IiwiYSI6ImNsdjE4amdrdzA0ZXgybHFnbTd4cmQwbHEifQ.SKH-f-cKklc-I_WODvMe7g>');
 
@@ -39,6 +41,17 @@ function MapScreen(props) {
     );
 }
 const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+  },
+  map: {
+    flex: 1,
+  },
   page: {
     flex: 1,
     justifyContent: 'center',
