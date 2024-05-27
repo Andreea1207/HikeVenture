@@ -2,7 +2,6 @@ import React, {useEffect, useState, useRef} from 'react';
 import { Dimensions, Image, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ToolBarComponent from '../components/BottomTabNavigator';
 import { Camera, PointAnnotation, MapView, ShapeSource, LineLayer  } from '@rnmapbox/maps';
 import Mapbox, { Logger } from '@rnmapbox/maps';
 

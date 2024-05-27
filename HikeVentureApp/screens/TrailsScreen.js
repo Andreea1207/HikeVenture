@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ToolBarComponent from '../components/BottomTabNavigator';
+
 
 // Sample trail data
 const trails = [
@@ -46,7 +46,7 @@ const TrailsScreen = ({ navigation }) => {
   // Function to handle navigation to details screen
   const handleTrailPress = (trail) => {
     // Navigate to details screen, you can replace 'Details' with your actual details screen name
-    navigation.navigate('Details', { trail });
+    navigation.navigate('Welcome', { screen: 'DetailsScreen', trail });
   };
 
   return (

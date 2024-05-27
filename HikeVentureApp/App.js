@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, TouchableOpacity, View, Image, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator, createNativeTabNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator,  createNativeTabNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //Screens
@@ -9,9 +9,8 @@ import MapScreen from './screens/MapScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import TrailsScreen from './screens/TrailsScreen';
-import DetailsScreen from './screens/DetailsScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import { ToolBar, ToolBarItem, ToolBarIcon, ToolBarText } from './components/style';
+import {ToolBar, ToolBarItem, ToolBarIcon, ToolBarText }from './components/style';
 import{Ionicons} from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
