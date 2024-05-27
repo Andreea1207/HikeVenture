@@ -11,8 +11,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {ToolBar, ToolBarIcon, ToolBarItem, ToolBarText} from './../components/style';
-import ToolBarComponent from '../components/BottomTabNavigator';
+
 Logger.setLogCallback( log => {
   const {message} = log;
   if(message.match('Request failed due to a permanent error: Canceled') || 
@@ -28,7 +27,7 @@ Mapbox.setTelemetryEnabled(false);
 
 //const Stack = createNativeStackNavigator();
 
-export default function App(navigation) {
+export default function App() {
 
   const [queryStart, setQueryStart] = useState('');
   const [suggestionsStart, setSuggestionsStart] = useState([]);
@@ -48,6 +47,9 @@ export default function App(navigation) {
 
   const [isSelectingEnd, setIsSelectingEnd] = useState(false);
   const [showConfirmButtonEnd, setShowConfirmButtonEnd] = useState(false);
+
+  const [showRouteInfoModal, setShowRouteInfoModal] = useState(false); // State for showing modal
+  const [routeInfo, setRouteInfo] = useState(null); // State for route information
 
   const fetchSuggestions = async (input, setSuggestions) => {
     const url = `https://nominatim.openstreetmap.org/search?q=${input}&format=json&addressdetails=1&limit=3`;
@@ -102,7 +104,11 @@ export default function App(navigation) {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      const routeLength = data.routes[0].distance; // Get the route length
+      const routeDuration = data.routes[0].duration;
       setRoute(data.routes[0].geometry); // Set the route geometry
+      setRouteInfo({ distance: routeLength, duration: routeDuration }); // Set route information
+      setShowRouteInfoModal(true); // Show the modal with route information
     } catch (error) {
       console.error('Error fetching route:', error);
     }
@@ -234,7 +240,8 @@ export default function App(navigation) {
   //   let location = await Location.getCurrentPositionAsync({});
   //   console.log(location);
   // };
-  return ( 
+  
+  return (
     <View style={styles.mapContainer}>
       <View style={styles.searchContainer}>
         <View style={styles.inputContainer}>
@@ -356,7 +363,26 @@ export default function App(navigation) {
       <TouchableOpacity style={styles.resetButton} onPress={resetMapRotation}>
         <Entypo name="compass" size={38} color="black" />
       </TouchableOpacity>
-      <ToolBarComponent navigation={navigation}/>
+      
+
+              {/* Modal for route information */}
+              <Modal
+                visible={showRouteInfoModal}
+                animationType="slide"
+                transparent={true}
+                onRequestClose={() => setShowRouteInfoModal(false)}
+              >
+                <View style={styles.modalContainer}>
+                  <View style={styles.modalContent}>
+                    <Text style={styles.modalTitle}>Route Information</Text>
+                    {routeInfo && (
+                      <Text style={styles.modalText}>Distance: {(routeInfo.distance / 1000).toFixed(2)} km Duration:{(routeInfo.duration/3600).toPrecision(1)} hours</Text>
+                    )}
+                    <Button title="Close" onPress={() => setShowRouteInfoModal(false)} />
+                  </View>
+                </View>
+              </Modal>
+
       </View>
   );
 }
@@ -488,5 +514,27 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 18,
     padding: 10,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  modalContent: {
+    width: '80%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    alignItems: 'center',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 20,
   }
 });

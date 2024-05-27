@@ -8,6 +8,7 @@ import MapScreen from './screens/MapScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import TrailsScreen from './screens/TrailsScreen';
+import DetailsScreen from './screens/DetailsScreen';
 import {ToolBar, ToolBarIcon}from './components/style';
 import{Ionicons} from '@expo/vector-icons';
 
@@ -20,8 +21,9 @@ export default function App() {
       <Stack.Navigator initialRouteName="Welcome">
       <Stack.Screen name="Map" component={MapScreen} options={{ headerShown: true }}/>
       <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
-      <Stack.Screen name="Trails" component={TrailsScreen} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="Trails" component={TrailsScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="Details" component={DetailsScreen} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
