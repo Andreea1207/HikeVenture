@@ -12,6 +12,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
+
 Logger.setLogCallback( log => {
   const {message} = log;
   if(message.match('Request failed due to a permanent error: Canceled') || 
@@ -27,7 +28,7 @@ Mapbox.setTelemetryEnabled(false);
 
 //const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function MapScreen(navigation) {
 
   const [queryStart, setQueryStart] = useState('');
   const [suggestionsStart, setSuggestionsStart] = useState([]);

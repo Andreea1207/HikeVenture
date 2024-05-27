@@ -64,7 +64,7 @@ const TrailsScreen = ({ navigation }) => {
         ))}
       </ScrollView>
       <View style={styles.toolbarContainer}>
-        <ToolBarComponent navigation={navigation} />
+
       </View>
     </View>
   );

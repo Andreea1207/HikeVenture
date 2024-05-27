@@ -3,7 +3,7 @@ import { Image, View, Button, Text, ImageBackground, StyleSheet, TouchableOpacit
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { styles} from '../components/style';
-import ToolBarComponent from '../components/BottomTabNavigator';
+
 function WelcomeScreen({navigation}) {
    // const handleMapPress = () => navigation.navigate('Map');
 
@@ -14,7 +14,7 @@ function WelcomeScreen({navigation}) {
      };
 
      const handleContinuePress = () => {
-         navigation.navigate('Map');
+        navigation.navigate('Home');
      };
 
     return (
@@ -32,7 +32,6 @@ function WelcomeScreen({navigation}) {
                     <Text style={styles.buttonText}>Continue as Visitor</Text>
                 </TouchableOpacity>
             </View>
-            <ToolBarComponent navigation={navigation}/>
         </View>
     );
 }
