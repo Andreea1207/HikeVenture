@@ -2,8 +2,8 @@ import React from 'react';
 import { Image, View, Button, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { styles } from '../components/style';
-
+import { styles} from '../components/style';
+import ToolBarComponent from '../components/BottomTabNavigator';
 function WelcomeScreen({navigation}) {
    // const handleMapPress = () => navigation.navigate('Map');
 
@@ -19,6 +19,7 @@ function WelcomeScreen({navigation}) {
 
     return (
         <View style={styles.background}>
+ 
             <View style={styles.logoContainerWelcome}>
                 <Image style={styles.logo} source={require("../assets/logo.png")}/>
                 <Text style={styles.text}>HikeVenture</Text>
@@ -31,7 +32,7 @@ function WelcomeScreen({navigation}) {
                     <Text style={styles.buttonText}>Continue as Visitor</Text>
                 </TouchableOpacity>
             </View>
-
+            <ToolBarComponent navigation={navigation}/>
         </View>
     );
 }

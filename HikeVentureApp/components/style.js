@@ -203,3 +203,35 @@ padding-bottom: 10px;
 background-color: ${secondary};
   position: absolute;
 `;*/
+
+export const ToolBar = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0; 
+  background-color: ${green};
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Ajustează înălțimea după necesitate */
+`;
+
+
+export const ToolBarItem = styled.TouchableOpacity`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ToolBarIcon = styled.Image`
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+`;
+
+export const ToolBarText = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+  color: black; /* Schimbă culoarea după necesitate */
+  margin-top: 2px;
+`;

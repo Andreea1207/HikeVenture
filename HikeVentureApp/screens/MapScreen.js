@@ -11,7 +11,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import {ToolBar, ToolBarIcon, ToolBarItem, ToolBarText} from './../components/style';
+import ToolBarComponent from '../components/BottomTabNavigator';
 Logger.setLogCallback( log => {
   const {message} = log;
   if(message.match('Request failed due to a permanent error: Canceled') || 
@@ -27,7 +28,7 @@ Mapbox.setTelemetryEnabled(false);
 
 //const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function App(navigation) {
 
   const [queryStart, setQueryStart] = useState('');
   const [suggestionsStart, setSuggestionsStart] = useState([]);
@@ -233,8 +234,7 @@ export default function App() {
   //   let location = await Location.getCurrentPositionAsync({});
   //   console.log(location);
   // };
-  
-  return (
+  return ( 
     <View style={styles.mapContainer}>
       <View style={styles.searchContainer}>
         <View style={styles.inputContainer}>
@@ -356,7 +356,7 @@ export default function App() {
       <TouchableOpacity style={styles.resetButton} onPress={resetMapRotation}>
         <Entypo name="compass" size={38} color="black" />
       </TouchableOpacity>
-
+      <ToolBarComponent navigation={navigation}/>
       </View>
   );
 }
