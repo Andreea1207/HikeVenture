@@ -195,15 +195,6 @@ background-color: ${darkLight};
 margin-vertical: 5px;
 `;
 
-/*export const ToolBar = styled.View`
-flex-direction: row;
-justifyContent: flex-end;
-align-items: center;
-padding-bottom: 10px; 
-background-color: ${secondary};
-  position: absolute;
-`;*/
-
 export const ToolBar = styled.View`
   flex-direction: row;
   justify-content: space-around;
@@ -224,8 +215,8 @@ export const ToolBarItem = styled.TouchableOpacity`
 `;
 
 export const ToolBarIcon = styled.Image`
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   margin-bottom: 5px;
 `;
 

@@ -3,7 +3,7 @@ import { Image, View, Button, Text, ImageBackground, StyleSheet, TouchableOpacit
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //import { styles} from '../components/style';
-import ToolBarComponent from '../components/BottomTabNavigator';
+
 
 const TrailsScreen = ({ navigation }) => {
   // Function to handle navigation to details screen
@@ -25,7 +25,7 @@ const TrailsScreen = ({ navigation }) => {
       </TouchableOpacity>
       {/* Add more TouchableOpacity elements for each trail */}
       <View style={styles.toolbarContainer}>
-        <ToolBarComponent navigation={navigation} />
+
       </View>
     </View>
   );
