@@ -11,6 +11,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 Logger.setLogCallback( log => {
@@ -393,6 +394,7 @@ const styles = StyleSheet.create({
     //flexDirection: 'row',
     //alignItems: 'center',
     //marginBottom: 10,
+    paddingTop: 10
   },
   confirmButtonContainer: {
     position: 'absolute',
@@ -403,7 +405,7 @@ const styles = StyleSheet.create({
   locationButton: {
     position: 'absolute',
     right: 20,
-    padding: 5,
+    padding: 15,
   },
   toggleButtonText: {
     color: 'black',
@@ -419,7 +421,7 @@ const styles = StyleSheet.create({
   },
    mapToggleButton: {
     position: 'absolute',
-    bottom: 10,
+    bottom: 65,
     right: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 20,
@@ -427,7 +429,7 @@ const styles = StyleSheet.create({
   },
   resetButton: {
     position: 'absolute',
-    bottom: 55,
+    bottom: 110,
     right: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 20,
@@ -444,7 +446,7 @@ const styles = StyleSheet.create({
   clearButton: {
     position: 'absolute',
     right: 1,
-    padding: 5,
+    padding: 15,
   },
   suggestionItem: {
     padding: 10,
@@ -478,7 +480,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   mapContainer: {
-    flex: 1
+    flex: 1,
+    paddingBottom: 60,
+    paddingTop:20
   },
   map: {
     flex: 1,

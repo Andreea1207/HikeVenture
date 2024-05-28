@@ -46,13 +46,13 @@ const TrailsScreen = ({ navigation }) => {
   // Function to handle navigation to details screen
   const handleTrailPress = (trail) => {
     // Navigate to details screen, you can replace 'Details' with your actual details screen name
-    navigation.navigate('Welcome', { screen: 'DetailsScreen', trail });
+    navigation.navigate('DetailsScreen', { trail });
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trails</Text>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
         {trails.map((trail) => (
           <TouchableOpacity key={trail.id} style={styles.trailItem} onPress={() => handleTrailPress(trail)}>
             <Image source={trail.image} style={styles.trailImage} />
@@ -81,6 +81,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
     textAlign: 'center',
+  },
+    scrollContainer: {
+    paddingBottom: 40, // Padding adăugat în partea de jos pentru a face loc ultimului element
   },
   trailItem: {
     marginBottom: 15,
