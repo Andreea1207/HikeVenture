@@ -10,6 +10,7 @@ import SignUpScreen from './screens/SignUpScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import TrailsScreen from './screens/TrailsScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import DetailsScreen from './screens/DetailsScreen';
 import {ToolBar, ToolBarItem, ToolBarIcon, ToolBarText }from './components/style';
 import{Ionicons} from '@expo/vector-icons';
 
@@ -83,7 +84,7 @@ function StackNavigator(){
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Welcome" component={WelcomeScreen}/>
       <Stack.Screen name="SignUp" component={SignUpScreen} />
-      
+      <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
       </Stack.Navigator>
       </NavigationContainer>
   );
