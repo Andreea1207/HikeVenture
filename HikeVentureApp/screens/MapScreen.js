@@ -107,8 +107,10 @@ export default function MapScreen(navigation) {
       const data = await response.json();
       const routeLength = data.routes[0].distance; // Get the route length
       const routeDuration = data.routes[0].duration;
+
+      const routeData = data.routes[0];
       setRoute(data.routes[0].geometry); // Set the route geometry
-      setRouteInfo({ distance: routeLength, duration: routeDuration }); // Set route information
+      setRouteInfo({ distance: routeLength, duration: routeDuration, elevationGain: 630 , elevationLoss: 115 }); // Set route information
       setShowRouteInfoModal(true); // Show the modal with route information
     } catch (error) {
       console.error('Error fetching route:', error);
@@ -211,6 +213,9 @@ export default function MapScreen(navigation) {
   const confirmStartLocation = () => {
     setIsSelectingStart(false);
     setShowConfirmButton(false);
+    if (selectedStartLocation) {
+      setQueryStart(`${selectedStartLocation.latitude}, ${selectedStartLocation.longitude}`);
+    }
     // Additional logic to handle the confirmed location can be added here
   };
 
@@ -223,6 +228,9 @@ export default function MapScreen(navigation) {
   const confirmEndLocation = () => {
     setIsSelectingEnd(false);
     setShowConfirmButtonEnd(false);
+    if (selectedEndLocation) {
+      setQueryEnd(`${selectedEndLocation.latitude}, ${selectedEndLocation.longitude}`);
+    }
     // Additional logic to handle the confirmed location can be added here
   };
 
@@ -260,15 +268,14 @@ export default function MapScreen(navigation) {
             </TouchableOpacity>
           </View>
         {suggestionsStart.length > 0 && (
-          <FlatList
-            data={suggestionsStart}
-            keyExtractor={(item) => item.place_id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity style={styles.suggestionItem} onPress={() => handleSuggestionPressStart(item)}>
-                <Text>{item.display_name}</Text>
-              </TouchableOpacity>
-            )}
-          />
+          <View style={styles.suggestionsContainer}>
+              {suggestionsStart.map((item, index) => (
+                <TouchableOpacity key={index} onPress={() => handleSuggestionPressStart(item)}>
+                  <Text style={styles.suggestion}>{item.display_name}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
         )}
         <View style={styles.inputContainer}>
         <TextInput
@@ -288,15 +295,13 @@ export default function MapScreen(navigation) {
 
         </View>
         {suggestionsEnd.length > 0 && (
-          <FlatList
-            data={suggestionsEnd}
-            keyExtractor={(item) => item.place_id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity style={styles.suggestionItem} onPress={() => handleSuggestionPressEnd(item)}>
-                <Text>{item.display_name}</Text>
-              </TouchableOpacity>
-            )}
-          />
+          <View style={styles.suggestionsContainer}>
+              {suggestionsEnd.map((item, index) => (
+                <TouchableOpacity key={index} onPress={() => handleSuggestionPressEnd(item)}>
+                  <Text style={styles.suggestion}>{item.display_name}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
         )}
         <Button title="Generate Route" onPress={handleGenerateRoute} disabled={!selectedStartLocation || !selectedEndLocation} />
       </View>
@@ -377,7 +382,7 @@ export default function MapScreen(navigation) {
                   <View style={styles.modalContent}>
                     <Text style={styles.modalTitle}>Route Information</Text>
                     {routeInfo && (
-                      <Text style={styles.modalText}>Distance: {(routeInfo.distance / 1000).toFixed(2)} km Duration:{(routeInfo.duration/3600).toPrecision(1)} hours</Text>
+                      <Text style={styles.modalText}>Distance: {(routeInfo.distance / 1000).toFixed(2)} km Duration:{(routeInfo.duration/3600).toPrecision(1)} hours Elevation Gain: {routeInfo.elevationGain} m Elevation Loss: {routeInfo.elevationLoss} m</Text>
                     )}
                     <Button title="Close" onPress={() => setShowRouteInfoModal(false)} />
                   </View>
@@ -389,6 +394,16 @@ export default function MapScreen(navigation) {
 }
 
 const styles = StyleSheet.create({
+  suggestionsContainer: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 4,
+    marginTop: -10,
+    elevation: 4,
+  },
+  suggestion: {
+    paddingVertical: 5,
+  },
   inputContainer: {
     //flexDirection: 'row',
     //alignItems: 'center',
@@ -453,7 +468,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     position: 'absolute',
-    //top: 40,
+    top: 30,
     width: '100%',
     paddingHorizontal: 20,
     zIndex: 10,
@@ -482,7 +497,7 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
-    marginTop: 115,
+    marginTop: 145,
   },
   markerContainer: {
     width: 25,
