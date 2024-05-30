@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
     scrollContainer: {
-    paddingBottom: 40, // Padding adăugat în partea de jos pentru a face loc ultimului element
+    //paddingBottom: 40, // Padding adăugat în partea de jos pentru a face loc ultimului element
   },
   trailItem: {
     marginBottom: 15,

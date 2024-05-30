@@ -29,9 +29,12 @@ Line
 
 const {brand, darkLight, primary} = Colors;
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
+  const handleSign = () => {
+    navigation.navigate('Home');
+  };
 
   return(
     <StyledContainer>
@@ -111,7 +114,11 @@ const SignUp = () => {
               />
               <MsgBox>...</MsgBox>
             <StyledButton onPress={handleSubmit}>
-              <ButtonText>SignUp</ButtonText>
+              <ButtonText onPress={handleSign}>SignUp</ButtonText>
+            </StyledButton>
+            <StyledButton google={true} onPress={handleSubmit}>
+              <Fontisto name='google' color={primary} size={20}/>
+                <ButtonText google={true}>Sign in with Google</ButtonText>
             </StyledButton>
             <Line />         
             </StyledFormArea>)}

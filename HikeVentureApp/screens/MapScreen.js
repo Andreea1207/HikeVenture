@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
     //flexDirection: 'row',
     //alignItems: 'center',
     //marginBottom: 10,
-    paddingTop: 10
+    //paddingTop: 10
   },
   confirmButtonContainer: {
     position: 'absolute',
@@ -420,7 +420,7 @@ const styles = StyleSheet.create({
   locationButton: {
     position: 'absolute',
     right: 20,
-    padding: 15,
+    padding: 5,
   },
   toggleButtonText: {
     color: 'black',
@@ -436,7 +436,7 @@ const styles = StyleSheet.create({
   },
    mapToggleButton: {
     position: 'absolute',
-    bottom: 65,
+    bottom: 10,
     right: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 20,
@@ -444,7 +444,7 @@ const styles = StyleSheet.create({
   },
   resetButton: {
     position: 'absolute',
-    bottom: 110,
+    bottom: 55,
     right: 10,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 20,
@@ -461,7 +461,7 @@ const styles = StyleSheet.create({
   clearButton: {
     position: 'absolute',
     right: 1,
-    padding: 15,
+    padding: 5,
   },
   suggestionItem: {
     padding: 10,
@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     position: 'absolute',
-    top: 30,
+    top: 20,
     width: '100%',
     paddingHorizontal: 20,
     zIndex: 10,
@@ -496,12 +496,12 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     flex: 1,
-    paddingBottom: 60,
-    paddingTop:20
+    // paddingBottom: 60,
+    // paddingTop:20
   },
   map: {
     flex: 1,
-    marginTop: 145,
+    marginTop: 135,
   },
   markerContainer: {
     width: 25,

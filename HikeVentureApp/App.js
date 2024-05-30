@@ -36,6 +36,7 @@ function HomeScreen() {
       tabBarStyle: {
       height: 52,
       backgroundColor: 'rgba(69, 190, 12, 1)',
+      //position: 'absolute',
       padding: 10,
       bottom: 0,
       flexDirection: 'row',

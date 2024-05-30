@@ -1,33 +1,55 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Image } from 'react-native';
 import {
     PageLogo,
     PageTitle,
-  LogoContainer
-  }from './../components/style';
+    LogoContainer
+} from './../components/style';
+
 const ProfileScreen = ({ navigation }) => {
   const handleLogout = () => {
-    // Implement logout functionality here
-    // For example, you might clear user data and navigate to the welcome screen
     navigation.navigate('Welcome');
   };
 
   return (
     <View style={styles.container}>
-    <LogoContainer>
-        <PageLogo resizeMode="cover" source={require('./../assets/logo.png')}/>
-          <PageTitle>HikeVenture</PageTitle>   
-      </LogoContainer>
-      <Text style={styles.title}>Profile</Text>
-      <View style={styles.profileInfo}>
-        <Text style={styles.label}>Username:</Text>
-        <Text style={styles.value}>admin</Text>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Contul meu</Text>
+        <Button title="Deconectare" onPress={handleLogout} color="#555" />
       </View>
-      <View style={styles.profileInfo}>
-        <Text style={styles.label}>Email:</Text>
-        <Text style={styles.value}>admin@gmail.com</Text>
+      <View style={styles.profileContainer}>
+        <Image style={styles.profileImage} source={require('./../assets/logo.png')} />
+        <Text style={styles.profileUsername}>AleRat</Text>
+        <Button title="Fii Explorator!" onPress={() => {}} color="#45be0c" />
+        <Text style={styles.profileMemberSince}>membru din:</Text>
+        <Text style={styles.profileMemberDate}>Jun. 2023</Text>
       </View>
-      <Button title="Log Out" onPress={handleLogout} />
+      <View style={styles.statsContainer}>
+        <View style={styles.statsItem}>
+          <Text style={styles.statsLabel}>Traseele mele:</Text>
+          <Text style={styles.statsValue}>0</Text>
+        </View>
+        <View style={styles.statsItem}>
+          <Text style={styles.statsLabel}>Trasee finalizate:</Text>
+          <Text style={styles.statsValue}>3</Text>
+        </View>
+        <View style={styles.statsItem}>
+          <Text style={styles.statsLabel}>Distanță parcursă:</Text>
+          <Text style={styles.statsValue}>30.00 km</Text>
+        </View>
+      </View>
+      <View style={styles.routesContainer}>
+        <Text style={styles.routeLabel}>Traseele mele:</Text>
+        <Button title=">" onPress={() => {}} color="#000" />
+      </View>
+      <View style={styles.routesContainer}>
+        <Text style={styles.routeLabel}>Trasee favorite:</Text>
+        <Button title=">" onPress={() => {}} color="#000" />
+      </View>
+      <View style={styles.routesContainer}>
+        <Text style={styles.routeLabel}>Trasee înregistrate:</Text>
+        <Button title=">" onPress={() => {}} color="#000" />
+      </View>
     </View>
   );
 };
@@ -35,28 +57,71 @@ const ProfileScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
     backgroundColor: '#f8f8f8',
+    padding: 20,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  profileInfo: {
+  header: {
     flexDirection: 'row',
-    marginBottom: 15,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#45be0c',
+    padding: 10,
   },
-  label: {
+  headerText: {
     fontSize: 18,
+    color: '#fff',
     fontWeight: 'bold',
-    marginRight: 10,
   },
-  value: {
-    fontSize: 18,
+  profileContainer: {
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
+  profileUsername: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  profileMemberSince: {
+    fontSize: 16,
     color: '#555',
+  },
+  profileMemberDate: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+  },
+  statsItem: {
+    alignItems: 'center',
+  },
+  statsLabel: {
+    fontSize: 14,
+    color: '#555',
+  },
+  statsValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  routesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  routeLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

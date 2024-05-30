@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
 export const StyledContainer = styled.View`
     flex: 1;
     padding: 25px;
-    padding-top: ${StatusBarHeight+10}px;
+    padding-top: ${StatusBarHeight+20}px;
     background-color:${primary};
 `;
 
@@ -87,14 +87,14 @@ export const InnerContainer = styled.View`
     flex: 1;
     width:100%;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 80px;
 `;
 
 export const LogoContainer = styled.View`
   flex-direction: row;
   align-items: center;
   position: absolute;
-  top: 10px;
+  top: 30px;
   left: 20px;
 `;
 
